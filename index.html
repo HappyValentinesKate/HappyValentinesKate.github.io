@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+        <title>VDAY 2019</title>
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/vday.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <link href="https://fonts.googleapis.com/css?family=Pacifico|Permanent+Marker" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="intro">
+            <h1 class="introText">Happy Valentine's Day</h1>
+        </div>
+
+        <div id="card-box">
+            <div class="left-half">
+                <div class="box-interior">
+                    <div class="top-box">
+                        <img class="front-heart" src="like.png"/>
+                    </div>
+
+                    <div class="bottom-box">
+                        <h1 id="upp" class="front-bottom-text">
+                            Tap card to open!
+                        </h1>
+                        <h1 id="bot" class="front-bottom-text">
+                            (turn up volume)
+                        </h1>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-half">
+                <div class="box-interior">
+                    <p class="right-paragraph">
+                        Happy Valentine's Day, beautiful. Thanks for giving me an amazing month so far. Here's to more late nights partying with you, barely getting you to your 8am classes, and learning more about each other.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            var snd = new Audio("everyday.mp3");
+
+            opened = false;
+
+            $('.left-half').click(function() {
+                snd.currentTime=0;
+                snd.play();
+
+                $('.left-half').toggleClass('open-card-left');
+
+                $('.right-half').toggleClass('open-card-right');
+
+                if (!opened) {
+                    $('#upp').text("To: Kate");
+                    $('#bot').text("From: Ahnaf")
+                }
+
+                $('.front-bottom-text').toggleClass('flip-text');
+                $('.right-paragraph').toggleClass('flip-text');
+
+                opened = !opened;
+
+            });
+        </script>
+    </body>
+
+</html>
